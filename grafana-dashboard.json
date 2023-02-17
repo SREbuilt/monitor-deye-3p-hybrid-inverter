@@ -1,0 +1,4452 @@
+{
+	"annotations": {
+	  "list": [
+		{
+		  "builtIn": 1,
+		  "datasource": {
+			"type": "grafana",
+			"uid": "-- Grafana --"
+		  },
+		  "enable": true,
+		  "hide": true,
+		  "iconColor": "rgba(0, 211, 255, 1)",
+		  "name": "Annotations & Alerts",
+		  "target": {
+			"limit": 100,
+			"matchAny": false,
+			"tags": [],
+			"type": "dashboard"
+		  },
+		  "type": "dashboard"
+		}
+	  ]
+	},
+	"editable": true,
+	"fiscalYearStartMonth": 0,
+	"graphTooltip": 0,
+	"id": 1,
+	"links": [],
+	"liveNow": false,
+	"panels": [
+	  {
+		"collapsed": false,
+		"gridPos": {
+		  "h": 1,
+		  "w": 24,
+		  "x": 0,
+		  "y": 0
+		},
+		"id": 23,
+		"panels": [],
+		"title": "Übersicht",
+		"type": "row"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "palette-classic"
+			},
+			"custom": {
+			  "axisCenteredZero": true,
+			  "axisColorMode": "text",
+			  "axisLabel": "",
+			  "axisPlacement": "auto",
+			  "barAlignment": 0,
+			  "drawStyle": "line",
+			  "fillOpacity": 75,
+			  "gradientMode": "none",
+			  "hideFrom": {
+				"legend": false,
+				"tooltip": false,
+				"viz": false
+			  },
+			  "lineInterpolation": "smooth",
+			  "lineStyle": {
+				"fill": "solid"
+			  },
+			  "lineWidth": 0.2,
+			  "pointSize": 5,
+			  "scaleDistribution": {
+				"type": "linear"
+			  },
+			  "showPoints": "auto",
+			  "spanNulls": false,
+			  "stacking": {
+				"group": "A",
+				"mode": "none"
+			  },
+			  "thresholdsStyle": {
+				"mode": "off"
+			  }
+			},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Akku SOC"
+			  },
+			  "properties": [
+				{
+				  "id": "unit",
+				  "value": "percent"
+				},
+				{
+				  "id": "max",
+				  "value": 100
+				},
+				{
+				  "id": "min",
+				  "value": 0
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "A",
+					"mode": "none"
+				  }
+				},
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#9d00ff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.fillOpacity",
+				  "value": 0
+				},
+				{
+				  "id": "custom.lineStyle",
+				  "value": {
+					"dash": [
+					  0,
+					  5
+					],
+					"fill": "dot"
+				  }
+				},
+				{
+				  "id": "custom.lineWidth",
+				  "value": 3
+				},
+				{
+				  "id": "custom.axisCenteredZero",
+				  "value": false
+				},
+				{
+				  "id": "custom.axisPlacement",
+				  "value": "hidden"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Verbrauch"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.lineStyle",
+				  "value": {
+					"fill": "solid"
+				  }
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "B",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "custom.gradientMode",
+				  "value": "opacity"
+				},
+				{
+				  "id": "custom.fillOpacity",
+				  "value": 29
+				},
+				{
+				  "id": "custom.lineWidth",
+				  "value": 1
+				},
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#e5713d",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "PV Dach"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#f5d60d",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.axisCenteredZero",
+				  "value": true
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "P",
+					"mode": "normal"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "PV Carport"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#3fde2a",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "P",
+					"mode": "normal"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Akku laden"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#0073ff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "N",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "custom.fillOpacity",
+				  "value": 69
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Akku entladen"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#00ffff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "P",
+					"mode": "normal"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Einspeisung"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ff4cff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "N",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Netzbezug"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "dark-red",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "N",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "PV"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#5794f2",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "P",
+					"mode": "normal"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Gen Produktion"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "P",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#B877D9",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Gen Verbrauch"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "N",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "dark-purple",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "__systemRef": "hideSeriesFrom",
+			  "matcher": {
+				"id": "byNames",
+				"options": {
+				  "mode": "exclude",
+				  "names": [
+					"Akku SOC",
+					"Gen Produktion",
+					"Gen Verbrauch",
+					"PV Carport",
+					"PV Dach",
+					"Verbrauch",
+					"Akku laden",
+					"Akku entladen",
+					"Einspeisung",
+					"Netzbezug"
+				  ],
+				  "prefix": "All except:",
+				  "readOnly": true
+				}
+			  },
+			  "properties": [
+				{
+				  "id": "custom.hideFrom",
+				  "value": {
+					"legend": false,
+					"tooltip": false,
+					"viz": true
+				  }
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 14,
+		  "w": 14,
+		  "x": 0,
+		  "y": 1
+		},
+		"id": 2,
+		"interval": "10s",
+		"options": {
+		  "legend": {
+			"calcs": [],
+			"displayMode": "list",
+			"placement": "bottom",
+			"showLegend": true,
+			"width": 160
+		  },
+		  "tooltip": {
+			"mode": "multi",
+			"sort": "none"
+		  }
+		},
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT\r\n\t`time`,\r\n\t`Akku SOC`,\r\n\tCASE WHEN `Generator` IS NULL THEN NULL WHEN `Generator` > 0 THEN `Generator` ELSE 0 END AS `Gen Produktion`,\r\n\tCASE WHEN `Generator` IS NULL THEN NULL WHEN `Generator` < 0 THEN `Generator` ELSE 0 END AS `Gen Verbrauch`,\r\n\t`PV Carport`,\r\n\t`PV Dach`,\r\n\tCASE WHEN `Generator` IS NULL THEN NULL WHEN `Generator` > 0 THEN `Generator` ELSE 0 END + `PV Carport` + `PV Dach` AS `PV`,\r\n\t`Verbrauch`,\r\n\tCASE WHEN `Akku` IS NULL THEN NULL WHEN `Akku` < 0 THEN -`Akku` ELSE 0 END AS `Akku laden`,\r\n\tCASE WHEN `Akku` IS NULL THEN NULL WHEN `Akku` > 0 THEN `Akku` ELSE 0 END AS `Akku entladen`,\r\n\tCASE WHEN `Netz` IS NULL THEN NULL WHEN `Netz` < 0 THEN -`Netz` ELSE 0 END AS `Einspeisung`,\r\n\tCASE WHEN `Netz` IS NULL THEN NULL WHEN `Netz` > 0 THEN `Netz` ELSE 0 END AS `Netzbezug`\r\nFROM\r\n\t(SELECT\r\n\t  ROUND(ROUND(UNIX_TIMESTAMP(`timestamp`) * 1000 / $__interval_ms) * $__interval_ms) AS `time`,\r\n\t  AVG(gen_P) AS `Generator`,\r\n\t  AVG(carport_P) AS `PV Carport`,\r\n\t  AVG(roof_P) AS `PV Dach`,\r\n\t  AVG(`battery_P`) AS `Akku`,\r\n\t  AVG(`grid_P`) AS `Netz`,\r\n\t  AVG(`load_total_P`) AS `Verbrauch`,\r\n\t  AVG(`battery_SOC`) AS `Akku SOC`\r\n\tFROM\r\n\t  log.pv\r\n\tWHERE\r\n\t  $__timeFilter(timestamp)\r\n\tGROUP BY\r\n\t\t`time`\r\n\tORDER BY\r\n\t  `time` DESC) AS `t`",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "timestamp",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "carport_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "roof_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "gen_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "orderBy": {
+				"property": {
+				  "name": [
+					"timestamp"
+				  ],
+				  "type": "string"
+				},
+				"type": "property"
+			  },
+			  "orderByDirection": "DESC",
+			  "whereJsonTree": {
+				"children1": [],
+				"id": "8b88a9ba-89ab-4cde-b012-318571684b72",
+				"type": "group"
+			  }
+			},
+			"table": "pv"
+		  }
+		],
+		"transformations": [],
+		"type": "timeseries"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#5794F2",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 12000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 1
+		},
+		"id": 15,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^val$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT gen_P+carport_P+roof_P AS `val` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Produktion",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 1
+		},
+		"id": 51,
+		"options": {
+		  "code": {
+			"language": "plaintext",
+			"showLineNumbers": false,
+			"showMiniMap": false
+		  },
+		  "content": "",
+		  "mode": "markdown"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"transparent": true,
+		"type": "text"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "orange",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 10000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 1
+		},
+		"id": 14,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^load_total_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT load_total_P AS `load_total_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Verbrauch",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#1c52f0",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 10000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 5
+		},
+		"id": 31,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^battery_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT battery_P AS `battery_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Akku",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#1c52f0",
+			  "mode": "fixed"
+			},
+			"decimals": 2,
+			"mappings": [],
+			"max": 60,
+			"min": 40,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "volt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 5
+		},
+		"id": 39,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^battery_V$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT battery_V*0.01 AS `battery_V` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 60*12 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Akku",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#9d00ff",
+			  "mode": "fixed"
+			},
+			"decimals": 0,
+			"mappings": [],
+			"max": 100,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "percent"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 5
+		},
+		"id": 38,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^battery_SOC$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT `battery_SOC` AS `battery_SOC` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 60*12 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Akku",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "dark-red",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 10000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 9
+		},
+		"id": 30,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^grid_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT grid_P AS `grid_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Netz",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#1dd4f0",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 10000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 9
+		},
+		"id": 32,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_P AS `inverter_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Inverter AC",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#16e87a",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 10000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 9
+		},
+		"id": 33,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^backup_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT backup_P AS `backup_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Backup",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"gridPos": {
+		  "h": 1,
+		  "w": 9,
+		  "x": 15,
+		  "y": 13
+		},
+		"id": 52,
+		"options": {
+		  "code": {
+			"language": "plaintext",
+			"showLineNumbers": false,
+			"showMiniMap": false
+		  },
+		  "content": "",
+		  "mode": "markdown"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"transparent": true,
+		"type": "text"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "yellow",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 5000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 14
+		},
+		"id": 11,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^roof_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT roof_P AS `roof_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Dach",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "green",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 8000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 14
+		},
+		"id": 12,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^carport_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT carport_P AS `carport_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Carport",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "purple",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 3000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 14
+		},
+		"id": 13,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^gen_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT gen_P AS `gen_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Generator",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "thresholds",
+			  "seriesBy": "last"
+			},
+			"custom": {
+			  "axisCenteredZero": false,
+			  "axisColorMode": "text",
+			  "axisLabel": "",
+			  "axisPlacement": "auto",
+			  "barAlignment": 0,
+			  "drawStyle": "line",
+			  "fillOpacity": 0,
+			  "gradientMode": "scheme",
+			  "hideFrom": {
+				"legend": false,
+				"tooltip": false,
+				"viz": false
+			  },
+			  "lineInterpolation": "linear",
+			  "lineStyle": {
+				"fill": "solid"
+			  },
+			  "lineWidth": 1,
+			  "pointSize": 5,
+			  "scaleDistribution": {
+				"type": "linear"
+			  },
+			  "showPoints": "auto",
+			  "spanNulls": false,
+			  "stacking": {
+				"group": "A",
+				"mode": "none"
+			  },
+			  "thresholdsStyle": {
+				"mode": "off"
+			  }
+			},
+			"decimals": 1,
+			"mappings": [],
+			"max": 67,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "yellow",
+				  "value": 35
+				},
+				{
+				  "color": "dark-orange",
+				  "value": 45
+				},
+				{
+				  "color": "dark-red",
+				  "value": 55
+				}
+			  ]
+			},
+			"unit": "celsius"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "DC Transformer"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.lineStyle",
+				  "value": {
+					"dash": [
+					  10,
+					  5
+					],
+					"fill": "dash"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Battery"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.lineStyle",
+				  "value": {
+					"dash": [
+					  0,
+					  3
+					],
+					"fill": "dot"
+				  }
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 7,
+		  "w": 14,
+		  "x": 0,
+		  "y": 15
+		},
+		"id": 4,
+		"options": {
+		  "legend": {
+			"calcs": [],
+			"displayMode": "list",
+			"placement": "bottom",
+			"showLegend": true,
+			"width": 160
+		  },
+		  "tooltip": {
+			"mode": "multi",
+			"sort": "none"
+		  }
+		},
+		"targets": [
+		  {
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT\r\n  ROUND(\r\n    ROUND(\r\n      UNIX_TIMESTAMP(`timestamp`) * 1000 / $__interval_ms\r\n    ) * $__interval_ms\r\n  ) AS `time`,\r\n  (AVG(heatsink_T) -1000) * 0.1 AS `Heatsink`,\r\n  (AVG(battery_T) -1000) * 0.1 AS `Battery`,\r\n  (AVG(DC_transformer_T) -1000) * 0.1 AS `DC Transformer`\r\nFROM\r\n  log.pv\r\nWHERE\r\n  $__timeFilter(timestamp)\r\nGROUP BY\r\n  `time`\r\nORDER BY\r\n  `time` DESC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			}
+		  }
+		],
+		"transformations": [],
+		"type": "timeseries"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "super-light-yellow",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 600,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "volt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 18
+		},
+		"id": 9,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^roof_V$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT roof_V*0.1 AS `roof_V` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Dach",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "super-light-green",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 600,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "volt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 18
+		},
+		"id": 10,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^carport_V$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT carport_V*0.1 AS `carport_V` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Carport",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"gridPos": {
+		  "h": 1,
+		  "w": 24,
+		  "x": 0,
+		  "y": 22
+		},
+		"id": 53,
+		"options": {
+		  "code": {
+			"language": "plaintext",
+			"showLineNumbers": false,
+			"showMiniMap": false
+		  },
+		  "content": "",
+		  "mode": "markdown"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"transparent": true,
+		"type": "text"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "palette-classic"
+			},
+			"custom": {
+			  "axisCenteredZero": false,
+			  "axisColorMode": "text",
+			  "axisLabel": "",
+			  "axisPlacement": "auto",
+			  "axisSoftMax": 12000,
+			  "axisSoftMin": -1000,
+			  "barAlignment": 0,
+			  "drawStyle": "line",
+			  "fillOpacity": 0,
+			  "gradientMode": "none",
+			  "hideFrom": {
+				"legend": false,
+				"tooltip": false,
+				"viz": false
+			  },
+			  "lineInterpolation": "linear",
+			  "lineStyle": {
+				"fill": "solid"
+			  },
+			  "lineWidth": 1,
+			  "pointSize": 5,
+			  "scaleDistribution": {
+				"type": "linear"
+			  },
+			  "showPoints": "auto",
+			  "spanNulls": false,
+			  "stacking": {
+				"group": "A",
+				"mode": "none"
+			  },
+			  "thresholdsStyle": {
+				"mode": "off"
+			  }
+			},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byRegexp",
+				"options": "^inverter_p[1,2,3]_P_in$"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "WN",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "custom.fillOpacity",
+				  "value": 40
+				},
+				{
+				  "id": "custom.transform"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byRegexp",
+				"options": "^inverter_p[1,2,3]_P_out$"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "WP",
+					"mode": "normal"
+				  }
+				},
+				{
+				  "id": "custom.fillOpacity",
+				  "value": 40
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p1_P_in"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ad5c04",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P1 <"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p1_P_out"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ad5c04",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P1 >"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p2_P_in"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ffffff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P2 <"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p2_P_out"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ffffff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P2 >"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p3_P_in"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#6f6f6f",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P3 <"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p3_P_out"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#6f6f6f",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P3 >"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_P_in"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#1dd4f0",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P <"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_P_out"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#1dd4f0",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "P >"
+				}
+			  ]
+			},
+			{
+			  "__systemRef": "hideSeriesFrom",
+			  "matcher": {
+				"id": "byNames",
+				"options": {
+				  "mode": "exclude",
+				  "names": [
+					"P1 <",
+					"P1 >",
+					"P2 <",
+					"P2 >",
+					"P3 <",
+					"P3 >"
+				  ],
+				  "prefix": "All except:",
+				  "readOnly": true
+				}
+			  },
+			  "properties": [
+				{
+				  "id": "custom.hideFrom",
+				  "value": {
+					"legend": false,
+					"tooltip": false,
+					"viz": true
+				  }
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 7,
+		  "w": 14,
+		  "x": 0,
+		  "y": 23
+		},
+		"id": 42,
+		"interval": "10s",
+		"options": {
+		  "legend": {
+			"calcs": [],
+			"displayMode": "list",
+			"placement": "bottom",
+			"showLegend": true,
+			"width": 160
+		  },
+		  "tooltip": {
+			"mode": "multi",
+			"sort": "none"
+		  }
+		},
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT\r\n\t`time`,\r\n\tCASE WHEN `inverter_p1_P` IS NULL THEN NULL WHEN `inverter_p1_P` < 0 THEN `inverter_p1_P` ELSE 0 END AS `inverter_p1_P_in`,\r\n\tCASE WHEN `inverter_p1_P` IS NULL THEN NULL WHEN `inverter_p1_P` > 0 THEN  `inverter_p1_P` ELSE 0 END AS `inverter_p1_P_out`,\r\n\tCASE WHEN `inverter_p2_P` IS NULL THEN NULL WHEN `inverter_p2_P` < 0 THEN `inverter_p2_P` ELSE 0 END AS `inverter_p2_P_in`,\r\n\tCASE WHEN `inverter_p2_P` IS NULL THEN NULL WHEN `inverter_p2_P` > 0 THEN  `inverter_p2_P` ELSE 0 END AS `inverter_p2_P_out`,\r\n\tCASE WHEN `inverter_p3_P` IS NULL THEN NULL WHEN `inverter_p3_P` < 0 THEN `inverter_p3_P` ELSE 0 END AS `inverter_p3_P_in`,\r\n\tCASE WHEN `inverter_p3_P` IS NULL THEN NULL WHEN `inverter_p3_P` > 0 THEN  `inverter_p3_P` ELSE 0 END AS `inverter_p3_P_out`,\r\n\tCASE WHEN `inverter_P` IS NULL THEN NULL WHEN `inverter_P` < 0 THEN -`inverter_P` ELSE 0 END AS `inverter_P_in`,\r\n\tCASE WHEN `inverter_P` IS NULL THEN NULL WHEN `inverter_P` > 0 THEN  `inverter_P` ELSE 0 END AS `inverter_P_out`\r\nFROM\r\n\t(SELECT\r\n\t  ROUND(ROUND(UNIX_TIMESTAMP(`timestamp`) * 1000 / $__interval_ms) * $__interval_ms) AS `time`,\r\n\t  AVG(`inverter_p1_P`) AS `inverter_p1_P`,\r\n\t  AVG(`inverter_p2_P`) AS `inverter_p2_P`,\r\n\t  AVG(`inverter_p3_P`) AS `inverter_p3_P`,\r\n\t  AVG(`inverter_P`) AS `inverter_P`\r\n\tFROM\r\n\t  log.pv\r\n\tWHERE\r\n\t  $__timeFilter(timestamp)\r\n\tGROUP BY\r\n\t\t`time`\r\n\tORDER BY\r\n\t  `time` DESC) AS `t`",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "timestamp",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "carport_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "roof_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "gen_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "orderBy": {
+				"property": {
+				  "name": [
+					"timestamp"
+				  ],
+				  "type": "string"
+				},
+				"type": "property"
+			  },
+			  "orderByDirection": "DESC",
+			  "whereJsonTree": {
+				"children1": [],
+				"id": "8b88a9ba-89ab-4cde-b012-318571684b72",
+				"type": "group"
+			  }
+			},
+			"table": "pv"
+		  }
+		],
+		"transformations": [],
+		"type": "timeseries"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#ad5c04",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 12000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 23
+		},
+		"id": 45,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_p1_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_p1_P AS `inverter_p1_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Phase 1",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#ad5c04",
+			  "mode": "fixed"
+			},
+			"decimals": 1,
+			"mappings": [],
+			"max": 245,
+			"min": 225,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "volt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 23
+		},
+		"id": 16,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_p1_V$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_p1_V*0.1 AS `inverter_p1_V` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Phase 1",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#1dd4f0",
+			  "mode": "fixed"
+			},
+			"decimals": 2,
+			"mappings": [],
+			"max": 50.5,
+			"min": 49.5,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "rothz"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 23
+		},
+		"id": 34,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_frq$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_frq*0.01 AS `inverter_frq` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Inverter",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#ffffff",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 12000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 27
+		},
+		"id": 46,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_p2_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_p2_P AS `inverter_p2_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Phase 2",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#ffffff",
+			  "mode": "fixed"
+			},
+			"decimals": 1,
+			"mappings": [],
+			"max": 245,
+			"min": 225,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "volt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 27
+		},
+		"id": 19,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_p2_V$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_p2_V*0.1 AS `inverter_p2_V` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Phase 2",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#ff9830",
+			  "mode": "fixed"
+			},
+			"decimals": 2,
+			"mappings": [],
+			"max": 50.5,
+			"min": 49.5,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "rothz"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 27
+		},
+		"id": 48,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^load_frq$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT load_frq*0.01 AS `load_frq` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Load",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "palette-classic"
+			},
+			"custom": {
+			  "axisCenteredZero": false,
+			  "axisColorMode": "text",
+			  "axisLabel": "",
+			  "axisPlacement": "auto",
+			  "axisSoftMax": 250,
+			  "axisSoftMin": 210,
+			  "barAlignment": 0,
+			  "drawStyle": "line",
+			  "fillOpacity": 0,
+			  "gradientMode": "none",
+			  "hideFrom": {
+				"legend": false,
+				"tooltip": false,
+				"viz": false
+			  },
+			  "lineInterpolation": "linear",
+			  "lineStyle": {
+				"fill": "solid"
+			  },
+			  "lineWidth": 1,
+			  "pointSize": 5,
+			  "scaleDistribution": {
+				"type": "linear"
+			  },
+			  "showPoints": "auto",
+			  "spanNulls": false,
+			  "stacking": {
+				"group": "A",
+				"mode": "none"
+			  },
+			  "thresholdsStyle": {
+				"mode": "off"
+			  }
+			},
+			"decimals": 1,
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "volt"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p1_V"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ad5c04",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "Phase 1"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p2_V"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ffffff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "Phase 2"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_p3_V"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#6f6f6f",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "displayName",
+				  "value": "Phase 3"
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 5,
+		  "w": 14,
+		  "x": 0,
+		  "y": 30
+		},
+		"id": 43,
+		"interval": "10s",
+		"options": {
+		  "legend": {
+			"calcs": [],
+			"displayMode": "list",
+			"placement": "bottom",
+			"showLegend": true,
+			"width": 160
+		  },
+		  "tooltip": {
+			"mode": "multi",
+			"sort": "none"
+		  }
+		},
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT\r\n\t`time`,\r\n\t`inverter_p1_V`,\r\n\t`inverter_p2_V`,\r\n\t`inverter_p3_V`\r\nFROM\r\n\t(SELECT\r\n\t  ROUND(ROUND(UNIX_TIMESTAMP(`timestamp`) * 1000 / $__interval_ms) * $__interval_ms) AS `time`,\r\n\t  0.1*AVG(`inverter_p1_V`) AS `inverter_p1_V`,\r\n\t  0.1*AVG(`inverter_p2_V`) AS `inverter_p2_V`,\r\n\t  0.1*AVG(`inverter_p3_V`) AS `inverter_p3_V`\r\n\tFROM\r\n\t  log.pv\r\n\tWHERE\r\n\t  $__timeFilter(timestamp)\r\n\tGROUP BY\r\n\t\t`time`\r\n\tORDER BY\r\n\t  `time` DESC) AS `t`",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "timestamp",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "carport_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "roof_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "gen_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "orderBy": {
+				"property": {
+				  "name": [
+					"timestamp"
+				  ],
+				  "type": "string"
+				},
+				"type": "property"
+			  },
+			  "orderByDirection": "DESC",
+			  "whereJsonTree": {
+				"children1": [],
+				"id": "8b88a9ba-89ab-4cde-b012-318571684b72",
+				"type": "group"
+			  }
+			},
+			"table": "pv"
+		  }
+		],
+		"transformations": [],
+		"type": "timeseries"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#6f6f6f",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 12000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 31
+		},
+		"id": 47,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_p3_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_p3_P AS `inverter_p3_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Phase 3",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#6f6f6f",
+			  "mode": "fixed"
+			},
+			"decimals": 1,
+			"mappings": [],
+			"max": 245,
+			"min": 225,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "volt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 18,
+		  "y": 31
+		},
+		"id": 18,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_p3_V$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_p3_V*0.1 AS `inverter_p3_V` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Phase 3",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#c4162a",
+			  "mode": "fixed"
+			},
+			"decimals": 2,
+			"mappings": [],
+			"max": 50.5,
+			"min": 49.5,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "rothz"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 31
+		},
+		"id": 49,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^grid_frq$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT grid_frq*0.01 AS `grid_frq` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Netz",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "palette-classic"
+			},
+			"custom": {
+			  "axisCenteredZero": false,
+			  "axisColorMode": "text",
+			  "axisLabel": "",
+			  "axisPlacement": "auto",
+			  "axisSoftMax": 50.2,
+			  "axisSoftMin": 49.8,
+			  "barAlignment": 0,
+			  "drawStyle": "line",
+			  "fillOpacity": 0,
+			  "gradientMode": "none",
+			  "hideFrom": {
+				"legend": false,
+				"tooltip": false,
+				"viz": false
+			  },
+			  "lineInterpolation": "linear",
+			  "lineStyle": {
+				"fill": "solid"
+			  },
+			  "lineWidth": 1,
+			  "pointSize": 5,
+			  "scaleDistribution": {
+				"type": "linear"
+			  },
+			  "showPoints": "auto",
+			  "spanNulls": false,
+			  "stacking": {
+				"group": "A",
+				"mode": "none"
+			  },
+			  "thresholdsStyle": {
+				"mode": "off"
+			  }
+			},
+			"decimals": 2,
+			"mappings": [],
+			"max": 50.2,
+			"min": 49.8,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "hertz"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "inverter_frq"
+			  },
+			  "properties": [
+				{
+				  "id": "displayName",
+				  "value": "Inverter"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "load_frq"
+			  },
+			  "properties": [
+				{
+				  "id": "displayName",
+				  "value": "Load"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "grid_frq"
+			  },
+			  "properties": [
+				{
+				  "id": "displayName",
+				  "value": "Netz"
+				},
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#c4162a",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Inverter"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#1dd4f0",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Load"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ff9830",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "__systemRef": "hideSeriesFrom",
+			  "matcher": {
+				"id": "byNames",
+				"options": {
+				  "mode": "exclude",
+				  "names": [
+					"Inverter",
+					"Netz"
+				  ],
+				  "prefix": "All except:",
+				  "readOnly": true
+				}
+			  },
+			  "properties": [
+				{
+				  "id": "custom.hideFrom",
+				  "value": {
+					"legend": false,
+					"tooltip": false,
+					"viz": true
+				  }
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 14,
+		  "x": 0,
+		  "y": 35
+		},
+		"id": 44,
+		"interval": "10s",
+		"options": {
+		  "legend": {
+			"calcs": [],
+			"displayMode": "list",
+			"placement": "bottom",
+			"showLegend": true,
+			"width": 160
+		  },
+		  "tooltip": {
+			"mode": "multi",
+			"sort": "none"
+		  }
+		},
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT\r\n\t`time`,\r\n\t`inverter_frq`,\r\n\t`load_frq`,\r\n\t`grid_frq`\r\nFROM\r\n\t(SELECT\r\n\t  ROUND(ROUND(UNIX_TIMESTAMP(`timestamp`) * 1000 / $__interval_ms) * $__interval_ms) AS `time`,\r\n\t  0.01*AVG(`inverter_frq`) AS `inverter_frq`,\r\n\t  0.01*AVG(`load_frq`) AS `load_frq`,\r\n\t  0.01*AVG(`grid_frq`) AS `grid_frq`\r\n\tFROM\r\n\t  log.pv\r\n\tWHERE\r\n\t  $__timeFilter(timestamp)\r\n\tGROUP BY\r\n\t\t`time`\r\n\tORDER BY\r\n\t  `time` DESC) AS `t`",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "timestamp",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "carport_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "roof_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				},
+				{
+				  "parameters": [
+					{
+					  "name": "gen_P",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "orderBy": {
+				"property": {
+				  "name": [
+					"timestamp"
+				  ],
+				  "type": "string"
+				},
+				"type": "property"
+			  },
+			  "orderByDirection": "DESC",
+			  "whereJsonTree": {
+				"children1": [],
+				"id": "8b88a9ba-89ab-4cde-b012-318571684b72",
+				"type": "group"
+			  }
+			},
+			"table": "pv"
+		  }
+		],
+		"transformations": [],
+		"type": "timeseries"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "fixedColor": "#1dd4f0",
+			  "mode": "fixed"
+			},
+			"mappings": [],
+			"max": 10000,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "watt"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 15,
+		  "y": 35
+		},
+		"id": 54,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "lastNotNull"
+			],
+			"fields": "/^inverter_P$/",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT inverter_P AS `inverter_P` FROM log.pv WHERE timestamp >= NOW() - INTERVAL 180 MINUTE  ORDER BY timestamp ASC",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "battery_SOC",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv"
+		  }
+		],
+		"title": "Inverter AC",
+		"type": "stat"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "thresholds"
+			},
+			"custom": {
+			  "align": "auto",
+			  "cellOptions": {
+				"type": "auto"
+			  },
+			  "filterable": false,
+			  "inspect": false,
+			  "minWidth": 50
+			},
+			"mappings": [],
+			"max": 200,
+			"min": 0,
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 60
+				}
+			  ]
+			},
+			"unit": "s"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Offset"
+			  },
+			  "properties": [
+				{
+				  "id": "color"
+				},
+				{
+				  "id": "custom.cellOptions",
+				  "value": {
+					"mode": "basic",
+					"type": "gauge"
+				  }
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 4,
+		  "w": 3,
+		  "x": 21,
+		  "y": 35
+		},
+		"id": 29,
+		"options": {
+		  "footer": {
+			"countRows": false,
+			"enablePagination": false,
+			"fields": "",
+			"reducer": [
+			  "sum"
+			],
+			"show": false
+		  },
+		  "showHeader": false
+		},
+		"pluginVersion": "9.4.0-beta1",
+		"targets": [
+		  {
+			"dataset": "log",
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(`inverter_timestamp`) AS `Offset` FROM log.pv_values LIMIT 1",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [
+					{
+					  "name": "inverter_timestamp",
+					  "type": "functionParameter"
+					}
+				  ],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			},
+			"table": "pv_values"
+		  }
+		],
+		"title": "Uhrzeit Versatz",
+		"type": "table"
+	  },
+	  {
+		"collapsed": false,
+		"gridPos": {
+		  "h": 1,
+		  "w": 24,
+		  "x": 0,
+		  "y": 39
+		},
+		"id": 27,
+		"panels": [],
+		"title": "Historie",
+		"type": "row"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "palette-classic"
+			},
+			"custom": {
+			  "axisCenteredZero": true,
+			  "axisColorMode": "text",
+			  "axisLabel": "",
+			  "axisPlacement": "auto",
+			  "barAlignment": 0,
+			  "drawStyle": "bars",
+			  "fillOpacity": 34,
+			  "gradientMode": "hue",
+			  "hideFrom": {
+				"legend": false,
+				"tooltip": false,
+				"viz": false
+			  },
+			  "lineInterpolation": "linear",
+			  "lineWidth": 1,
+			  "pointSize": 5,
+			  "scaleDistribution": {
+				"type": "linear"
+			  },
+			  "showPoints": "auto",
+			  "spanNulls": false,
+			  "stacking": {
+				"group": "A",
+				"mode": "normal"
+			  },
+			  "thresholdsStyle": {
+				"mode": "off"
+			  }
+			},
+			"decimals": 1,
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "kwatth"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Verbrauch"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "B",
+					"mode": "none"
+				  }
+				},
+				{
+				  "id": "custom.fillOpacity",
+				  "value": 0
+				},
+				{
+				  "id": "custom.drawStyle",
+				  "value": "line"
+				},
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#e5713d",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Akku entladen"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#00ffff",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Akku laden"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#1152ff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Netzbezug"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#e8112a",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "PV"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#f5d60d",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Einspeisung"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ff4cff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Generator"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#b877d9",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 10,
+		  "w": 24,
+		  "x": 0,
+		  "y": 40
+		},
+		"hideTimeOverride": true,
+		"id": 36,
+		"options": {
+		  "legend": {
+			"calcs": [],
+			"displayMode": "list",
+			"placement": "bottom",
+			"showLegend": true
+		  },
+		  "tooltip": {
+			"mode": "multi",
+			"sort": "none"
+		  }
+		},
+		"pluginVersion": "9.3.2",
+		"targets": [
+		  {
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT\r\n    DATE(`date`) AS `date`,\r\n    `pv` * 0.1 AS `PV`,\r\n    `gen` * 0.1 AS `Generator`,\r\n    `grid_out` * 0.1 AS `Einspeisung`,\r\n    `grid_in` * 0.1 AS `Netzbezug`,\r\n    `battery_charge` * 0.1 AS `Akku laden`,\r\n    `battery_discharge` * 0.1 AS `Akku entladen`,\r\n    `load` * 0.1 AS `Verbrauch`\r\nFROM\r\n    `log`.`pv_E`\r\nWHERE\r\n    $__timeFilter(date)",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			}
+		  }
+		],
+		"timeFrom": "2M",
+		"title": "Energie / Tag",
+		"type": "timeseries"
+	  },
+	  {
+		"datasource": {
+		  "type": "mysql",
+		  "uid": "bmx77_pVz"
+		},
+		"fieldConfig": {
+		  "defaults": {
+			"color": {
+			  "mode": "palette-classic"
+			},
+			"custom": {
+			  "axisCenteredZero": true,
+			  "axisColorMode": "text",
+			  "axisLabel": "",
+			  "axisPlacement": "auto",
+			  "barAlignment": 0,
+			  "drawStyle": "bars",
+			  "fillOpacity": 34,
+			  "gradientMode": "hue",
+			  "hideFrom": {
+				"legend": false,
+				"tooltip": false,
+				"viz": false
+			  },
+			  "lineInterpolation": "linear",
+			  "lineWidth": 1,
+			  "pointSize": 5,
+			  "scaleDistribution": {
+				"type": "linear"
+			  },
+			  "showPoints": "auto",
+			  "spanNulls": false,
+			  "stacking": {
+				"group": "A",
+				"mode": "normal"
+			  },
+			  "thresholdsStyle": {
+				"mode": "off"
+			  }
+			},
+			"decimals": 2,
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "kwatth"
+		  },
+		  "overrides": [
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Verbrauch"
+			  },
+			  "properties": [
+				{
+				  "id": "custom.stacking",
+				  "value": {
+					"group": "B",
+					"mode": "none"
+				  }
+				},
+				{
+				  "id": "custom.fillOpacity",
+				  "value": 0
+				},
+				{
+				  "id": "custom.drawStyle",
+				  "value": "line"
+				},
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#e5713d",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Akku entladen"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#00ffff",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Akku laden"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#1152ff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Netzbezug"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#e8112a",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "PV"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#f5d60d",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Einspeisung"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#ff4dff",
+					"mode": "fixed"
+				  }
+				},
+				{
+				  "id": "custom.transform",
+				  "value": "negative-Y"
+				}
+			  ]
+			},
+			{
+			  "matcher": {
+				"id": "byName",
+				"options": "Generator"
+			  },
+			  "properties": [
+				{
+				  "id": "color",
+				  "value": {
+					"fixedColor": "#B877D9",
+					"mode": "fixed"
+				  }
+				}
+			  ]
+			}
+		  ]
+		},
+		"gridPos": {
+		  "h": 10,
+		  "w": 24,
+		  "x": 0,
+		  "y": 50
+		},
+		"hideTimeOverride": true,
+		"id": 37,
+		"interval": "1M",
+		"options": {
+		  "legend": {
+			"calcs": [],
+			"displayMode": "list",
+			"placement": "bottom",
+			"showLegend": true
+		  },
+		  "tooltip": {
+			"mode": "multi",
+			"sort": "none"
+		  }
+		},
+		"pluginVersion": "9.3.2",
+		"targets": [
+		  {
+			"datasource": {
+			  "type": "mysql",
+			  "uid": "bmx77_pVz"
+			},
+			"editorMode": "code",
+			"format": "table",
+			"rawQuery": true,
+			"rawSql": "SELECT\r\n    UNIX_TIMESTAMP(DATE(CONCAT(YEAR(`date`),'-',MONTH(`date`),'-01'))) AS `time`,\r\n    SUM(`pv`) * 0.1 AS `PV`,\r\n    SUM(`gen`) * 0.1 AS `Generator`,\r\n    SUM(`grid_out`) * 0.1 AS `Einspeisung`,\r\n    SUM(`grid_in`) * 0.1 AS `Netzbezug`,\r\n    SUM(`battery_charge`) * 0.1 AS `Akku laden`,\r\n    SUM(`battery_discharge`) * 0.1 AS `Akku entladen`,\r\n    SUM(`load`) * 0.1 AS `Verbrauch`\r\nFROM\r\n    `log`.`pv_E`\r\nWHERE\r\n    $__timeFilter(date)\r\nGROUP BY\r\n    `time`\r\n",
+			"refId": "A",
+			"sql": {
+			  "columns": [
+				{
+				  "parameters": [],
+				  "type": "function"
+				}
+			  ],
+			  "groupBy": [
+				{
+				  "property": {
+					"type": "string"
+				  },
+				  "type": "groupBy"
+				}
+			  ],
+			  "limit": 50
+			}
+		  }
+		],
+		"timeFrom": "12M",
+		"title": "Energie / Monat",
+		"type": "timeseries"
+	  }
+	],
+	"refresh": "10s",
+	"revision": 1,
+	"schemaVersion": 38,
+	"style": "dark",
+	"tags": [],
+	"templating": {
+	  "list": []
+	},
+	"time": {
+	  "from": "now-3d",
+	  "to": "now"
+	},
+	"timepicker": {},
+	"timezone": "",
+	"title": "PV",
+	"uid": "mJkcM_p4z",
+	"version": 268,
+	"weekStart": ""
+  }
