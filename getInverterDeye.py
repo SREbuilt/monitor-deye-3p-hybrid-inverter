@@ -25,23 +25,31 @@ sql_values = []
 for register in deye.registers:
 	if ( register[deye.reg_log] == 1 ):
 		sql_fields.append( ' `' + register[deye.reg_db_field] + '`' )
-		sql_values.append( ' %s' )
+		sql_values.append( ' %s AS `' + register[deye.reg_db_field] + '`' )
 
-sqlInsertData = 'INSERT INTO `pv` ( `timestamp`,{fields} ) VALUES ( NOW(),{values} )'.format(
+#sqlInsertData = 'INSERT INTO `pv` ( `timestamp`,{fields} ) VALUES ( NOW(6),{values} )'.format(
+#		fields=",".join(sql_fields),
+#		values=",".join(sql_values)
+#	)
+
+sqlInsertData = 'INSERT INTO `pv` ( `timestamp`,`unix_ts`,{fields},`em_frq`,`em_grid_P`,`em_import_E`,`em_export_E` ) SELECT NOW(6),FLOOR(UNIX_TIMESTAMP(NOW(6))*1000),{values},AVG(`frq`) AS `em_frq`,AVG(`P`) AS `em_grid_P`,AVG(`import_E`) AS `em_import_E`,AVG(`export_E`) AS `em_export_E` FROM `log`.`em_wago` WHERE `unix_ts` > %s'.format(
 		fields=",".join(sql_fields),
 		values=",".join(sql_values)
 	)
+#print( sqlInsertData )
+#sys.exit()
 
 # get last data timestamp
-mycursor.execute("SELECT UNIX_TIMESTAMP(`timestamp`) FROM `pv` ORDER BY `timestamp` DESC LIMIT 1")
+mycursor.execute("SELECT FLOOR(`unix_ts`/1000) FROM `pv` ORDER BY `unix_ts` DESC LIMIT 1")
 myresult = mycursor.fetchall()
 for x in myresult:
 	lastLogTimestamp = x[0]
 
+lastLogTimestamp = float(lastLogTimestamp)
 #sys.exit()
 
 # port name, slave address (in decimal)
-inverter = minimalmodbus.Instrument('/dev/ttyUSB0', 1)
+inverter = minimalmodbus.Instrument('/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A10MLD05-if00-port0', 1)
 inverter.serial.baudrate = 9600
 inverter.serial.bytesize = 8
 inverter.serial.parity   = minimalmodbus.serial.PARITY_NONE
@@ -63,6 +71,9 @@ while True:
 	#	start = int(sys.argv[1])
 
 	try:
+		for r in deye.registers:
+			if ( r[deye.reg_type] == 'bit' ):
+				r[deye.reg_value] = 0
 		while start < 601:
 			# Start register, number, function code
 			data = inverter.read_registers(start, d, 3)
@@ -74,45 +85,70 @@ while True:
 					r = deye.ref_registers[j]
 					if ( r[deye.reg_type] == 's16' ):
 						r[deye.reg_value] += data[i] - ((data[i] & 0x8000) << 1)
+					elif ( r[deye.reg_type] == 'u32' ):
+						r[deye.reg_value] += data[i] + (data[i+1] << 16)
 					elif ( r[deye.reg_type] == 'v16' ):
 						if ( data[i] != 42991 ):
 							r[deye.reg_value] += data[i]
+					elif ( r[deye.reg_type] == 'bit' ):
+						r[deye.reg_value] = data[i]
 					else:
 						r[deye.reg_value] += data[i]
 					# add high word onto lower
-					if ( r[deye.reg_log] == 2 ):
-						lr = deye.ref_registers[r[deye.reg_db_field]]
-						lr[deye.reg_value] += r[deye.reg_scale] * (r[deye.reg_value] + r[deye.reg_offset])
+					#if ( r[deye.reg_log] == 2 ):
+					#	lr = deye.ref_registers[r[deye.reg_db_field]]
+					#	lr[deye.reg_value] += r[deye.reg_scale] * (r[deye.reg_value] + r[deye.reg_offset])
 
 			start += d
 		samples += 1
+		#register = 1000
+		#val = deye.ref_registers[register][deye.reg_value]
+		#print( '{register:3n} {val:6n}'.format(register=register,val=val) )
 
 		# log to db
 		now = time.time()
-		if ( now - startTime > 9.5 ):
+		if ( now - startTime > 4.5 ):
 			#log null row
 			if ( now - lastLogTimestamp > 30 ):
 				val = []
 				val.append( round( (now + lastLogTimestamp) / 2 ) )
-				mycursor.execute("INSERT INTO `pv` ( `timestamp` ) VALUES ( FROM_UNIXTIME(%s) )", val)
+				val.append( round( 1000 * ((now + lastLogTimestamp) / 2) ) )
+				mycursor.execute("INSERT INTO `pv` ( `timestamp`, `unix_ts` ) VALUES ( FROM_UNIXTIME(%s), %s )", val)
 				mydb.commit()
 			
-			#toggle gen port
+			#toggle gen port 0=generator, 1=smartout, 2=microinverter
 			gen = inverter.read_registers(133, 1, 3)
-			if ( ( deye.ref_registers[672][deye.reg_value] / samples ) > 100 and ( deye.ref_registers[673][deye.reg_value] / samples ) > 100 ):
+			mycursor.execute("SELECT `elevation` FROM `sun` WHERE `unix_ts` >= UNIX_TIMESTAMP(NOW())*1000 ORDER BY `unix_ts` LIMIT 1;")
+			myresult = mycursor.fetchall()
+			for x in myresult:
+				el = x[0]
+				if ( el > 0.0 ):
+					if ( gen[0] != 2 ):
+						inverter.write_register(133, 2, 0, 16, False)
+				else:
+					if ( gen[0] != 1 ):
+						inverter.write_register(133, 1, 0, 16, False)
+			"""
+			gen = inverter.read_registers(133, 1, 3)
+			if ( ( deye.ref_registers[672][deye.reg_value] / samples ) > 120 or
+				 ( deye.ref_registers[673][deye.reg_value] / samples ) > 120 or
+				 ( deye.ref_registers[667][deye.reg_value] / samples ) > 20):
 				if ( gen[0] != 2 ):
 					inverter.write_register(133, 2, 0, 16, False)
 			else:
 				if ( gen[0] != 1 ):
 					inverter.write_register(133, 1, 0, 16, False)
-
+			"""
+			
 			#insert to db
 			val = []
 			for r in deye.registers:
-				if ( r[deye.reg_log] == 1 ):
+				if ( r[deye.reg_log] == 1 and r[deye.reg_type] != 'bit' ):
 					val.append( round( r[deye.reg_value] / samples ) )
+				elif ( r[deye.reg_log] == 1 and r[deye.reg_type] == 'bit' ):
+					val.append( r[deye.reg_value] )
 				r[deye.reg_value] = 0
-
+			val.append( ( now - 5 ) * 1000 )
 			mycursor.execute(sqlInsertData, val)
 			mydb.commit()
 
@@ -135,8 +171,15 @@ while True:
 			samples = 0
 			errors = 0
 			startTime = time.time()
+			print( 'db10' )
 	except Exception as error:
 		#print( "[!] Exception occurred: ", error )
+		#cleanup
+		startTime = time.time()
+		samples = 0
+		for r in deye.registers:
+			r[deye.reg_value] = 0
+
 		errors += 1
 		if ( errors > 100 ):
 			print("getInverterDeye: exit, too many errors")

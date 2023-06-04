@@ -6,7 +6,7 @@ import deye
 from pathlib import Path
 
 # port name, slave address (in decimal)
-inverter = minimalmodbus.Instrument('/dev/ttyUSB0', 1)
+inverter = minimalmodbus.Instrument('/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A10MLD05-if00-port0', 1)
 inverter.serial.baudrate = 9600
 inverter.serial.bytesize = 8
 inverter.serial.parity   = minimalmodbus.serial.PARITY_NONE
@@ -17,10 +17,10 @@ inverter.close_port_after_each_call = True
 #inverter.debug = True
 #print(inverter)
 
-sys.exit()
+#sys.exit()
 
 
-currentRegister = 00
+currentRegister = 500
 d = 100
 #if ( len(sys.argv) > 1 ):
 #	start = int(sys.argv[1])
@@ -28,7 +28,7 @@ d = 100
 #date = [ 22 * 256 + 7, 11 * 256 + 5, 17 * 256 + 36 ]
 #inverter.write_registers(62, date )
 
-while currentRegister <= 700:
+while currentRegister <= 500:
 	# Register number, number of decimals, function code
 	data = inverter.read_registers(currentRegister, d, 3)
 	n = len(data)
@@ -45,10 +45,11 @@ while currentRegister <= 700:
 			unit = r[deye.reg_unit]
 			if ( r[3] == 's16' ):
 				val = raw - ((raw & 0x8000) << 1)
+			elif ( r[3] == 'u32' ):
+				val = data[i] + (data[i+1] << 16)
 			hrval = (val+r[deye.reg_offset]) * r[deye.reg_scale]
 		if ( raw > 0 ):
 			print( '{register:3n} x{hex:04X} {raw:5n} {val:6n} {hrval:6n} {unit:3} - {name}'.format(register=register,hex=raw,raw=raw,val=val,hrval=hrval,unit=unit,name=name) )
 
 	currentRegister += d
 	#sys.exit()
-
